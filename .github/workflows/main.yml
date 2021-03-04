@@ -103,6 +103,7 @@ jobs:
       #     prerelease: false
 
       - name: 发布npm包
+        if: env.NPM_TOKEN
         run: |
           cd dist
           npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
