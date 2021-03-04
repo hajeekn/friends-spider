@@ -104,10 +104,11 @@ jobs:
       #     prerelease: false
 
       - name: 发布npm包
-        if: env.NPM_TOKEN
+        if: env.NPM_TOKEN && env.NPM_NAME
         run: |
           cd dist
           npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
           npm publish
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          NPM_NAME: ${{ secrets.NPM_NAME }}
