@@ -44,6 +44,7 @@ jobs:
 
       - name: 运行主程序
         run: |
+          mkdir dist
           node index.js
         env:
           NPM_NAME: ${{ secrets.NPM_NAME }}
