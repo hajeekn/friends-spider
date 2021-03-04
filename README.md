@@ -63,9 +63,25 @@
 
    ![image-20210304094424699](https://file.acs.pw/picGo/2021/3/4/cea174db2ebc81e194764524ec44079d.png)
 
+6. 项目爬取完成后会将爬取结果上传到改项目下`friend`分支下，如果你设置了`NPM_NAME`和`NPM_TOKEN`那么也会上传到npm包下。
+
+   > 访问可以通过`unpkg`和`jsd`或者使用[小冰](https://github.com/Zfour/friends_link_list_api)的API。
+   >
+   > unpkg的格式为：`https://unpkg.com/{NPM包名}/friend.json`，这个链接每5分钟刷新一次（不要指定版本号）。
+
+   ```
+   # 请求链接 '不能少
+   # 必要字段为 用户名
+   # 其中仓库名如果不填默认为friends,分支如果不填默认为master
+   https://{项目域名}/api?repo='{仓库名}'&user='{用户名}'&branch='{分支}'
    
+   # 例子
+   # https://friends-link-list-api.vercel.app/api?user='Zfour'
+   # https://friends-link-list-api.vercel.app/api?repo='hexo-issuse-friends'&user='Zfour'
+   # https://friends-link-list-api.vercel.app/api?repo='hexo-issuse-friends'&user='Zfour'&branch='master'
+   ```
 
-
+   
 
 ## 环境变量设置
 
