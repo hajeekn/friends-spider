@@ -51,7 +51,21 @@
 
    ![image-20210304090247151](https://file.acs.pw/picGo/2021/3/4/2fd1570191ae585972796521a0bfe444.jpeg)
 
-3. 点击Actions，
+3. 点击Actions，打开actions的设置
+
+   ![image-20210304093752589](https://file.acs.pw/picGo/2021/3/4/9be568183a0c633ecd2684e77fb758b7.png)
+
+4. 这时点击一下点击一下issue，如果没有请到设置中开启issue
+
+   ![image-20210304093919237](https://file.acs.pw/picGo/2021/3/4/618aee94f681a4f344bfd2218dcfaa18.png)
+
+5. 此时点击一下自己仓库的start或者在自己仓库发表一个issue后等待actions运行结果即可。
+
+   ![image-20210304094424699](https://file.acs.pw/picGo/2021/3/4/cea174db2ebc81e194764524ec44079d.png)
+
+   
+
+
 
 ## 环境变量设置
 
