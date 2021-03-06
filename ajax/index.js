@@ -23,11 +23,10 @@ function request(url, token, data = {}, method = 'GET') {
   return new Promise((resolve, reject) => {
     let promise
     // 1. 执行异步请求
-
     if (method === 'GET') {
       promise = axios.get(url, {
         params: data,
-        headers: { Authorization: 'Bearer ' + token }
+        headers: !token ? {} : { Authorization: 'Bearer ' + token }
       })
     } else {
       promise = axios.post(url, data)

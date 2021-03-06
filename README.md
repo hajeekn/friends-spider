@@ -154,3 +154,56 @@
 ## 部分环境变量的获取
 
 参考：[https://www.antmoe.com/posts/cdc580cd/](https://www.antmoe.com/posts/cdc580cd/)
+
+
+
+## 码云仓库通过webhook触发actions
+
+> 参考[小冰](https://zfe.space/)的API即可，项目地址：https://github.com/Zfour/yuque_vercel_webhook_api
+
+```
+https://yuque-vercel-webhook-api.vercel.app/api?
+token='{填写你的github私钥}'&
+user='{填写你的github用户名}'&
+source='{填写你的github仓库地址}'
+
+示例：
+https://yuque-vercel-webhook-api.vercel.app/api?token='8888888888'&user='Zfour'&source='my-blog-source-file'
+将这个URL路径作为触发链接，在gitee中进行配置。
+```
+
+![image-20210304155107750](https://file.acs.pw/picGo/2021/3/4/763d3a78cbc0cad0a5a23c691beadce8.png)
+
+## GitHub触发webhook
+
+**将项目clone到你的仓库中，在这个仓库发布issue就会自动触发actions。**
+
+
+
+如果你的友链仓库与本项目没在一个仓库，那么可以在你友链仓库添加一个actions任务。例如：
+
+```yaml
+# This is a basic workflow to help you get started with Actions
+
+name: Async
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  issues:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Async
+        run: |
+          curl --location --request POST 'https://api.github.com/repos/iServes/actions-friend-spider/dispatches'  --header 'Authorization: Bearer ${{ secrets.GH_ACCESS_TOKEN }}' --header 'Content-Type: application/json' --data-raw '{"event_type":"Gitee Webhook"}'
+```
+
+然后记得添加一个名为`GHGH_ACCESS_TOKEN`的`secrets`
