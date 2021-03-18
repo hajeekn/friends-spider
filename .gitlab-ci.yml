@@ -6,6 +6,7 @@ image: node:14-alpine
 build:
   script:
     - npm install
+    - mkdir dist
     - node index.js
     - cd dist
     - npm config set //registry.npmjs.org/:_authToken=${NPM_TOKEN}
