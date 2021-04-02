@@ -17,7 +17,7 @@ const index = async () => {
     name: process.env.NPM_NAME || '',
     version: `${obj.date[0]}.${obj.date[1]}.${obj.date.slice(2, 13)}`,
     main: 'index.js',
-    description: '一个存储爬取到的友链的仓库。'
+    description: 'Hajeekn的友链json信息存储仓库'
   }
   const pageageFileStr = JSON.stringify(pageageFile)
   await fs.writeFile('./dist/package.json', pageageFileStr, 'utf8', (err) => {
